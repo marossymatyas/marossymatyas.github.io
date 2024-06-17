@@ -1,1 +1,172 @@
-Sziasztok !
+<!-- This HTML file provides a simple example of a portfolio page. It contains a header, a few sections, and a few charts. -->
+<!-- It works with the three css files in this folder: example1.css, example2.css and example3.css. -->
+<!-- The HTML file defines the structure of the page, and the CSS files define how it looks. -->
+<!-- The CSS examples are all designed to work with this page. Try swapping them out on line 29 and see what happens. -->
+
+<!-- Take a look around and make your own copy to adapt for your own use. -->
+
+<!-- They can be used to leave notes in the code -->
+
+<!-- This HTML file provides a simple example of a portfolio page. It contains a header, a few sections, and a few charts. -->
+<!-- It works with the three css files in this folder: example1.css, example2.css and example3.css. -->
+<!-- The HTML file defines the structure of the page, and the CSS files define how it looks. -->
+<!-- The CSS examples are all designed to work with this page. Try swapping them out on line 29 and see what happens. -->
+
+<!-- Take a look around and make your own copy to adapt for your own use. -->
+
+<!-- They can be used to leave notes in the code -->
+
+<!DOCTYPE html>
+<html> 
+
+<head>    
+    <link rel="stylesheet" type="text/css" href="s2_example1.css">
+    <title>My Portfolio</title>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body> 
+    <h1 class="big" style="margin-bottom: 0px;">
+        Marossy Cseke-Mátyás- tesztoldal
+    </h1>
+    <p style="margin-top: 0px; color: darkblue">
+        Marossy Cseke-Mátyás | <a href="https://www.linkedin.com/in/finnmcevoy/">LinkedIn</a> | <a
+            href="https://www.github.com/FM-ds">GitHub</a>
+    </p>
+    <h3 class="small">
+        Ez a weboldal különböző grafikonokat és adatokat tartalmaz a kriptovalutákról. Az oldal célja, hogy interaktív és informatív módon mutassa be az adatokat, segítve ezzel a látogatókat a blokkláncok működésének jobb megértésében. Minden diagram interaktív, lehetővé téve, hogy közelebbről megvizsgálják az adatokat. A grafikonok dinamikusan frissülnek és lehetőséget biztosítanak a részletes elemzésre. Az oldalon található szekciókban részletes elemzéseket és vizualizációkat találsz a legnépszerűbb kriptovalutákról, mint például a Bitcoin, Ethereum és a Solana.
+    </h3>
+
+    <section>
+        <div class="chart-description">
+            <h2>Section 1: Kriptovaluták piaci kapitalizációja</h2>
+            <p>
+                A lenti ábra a kriptovaluták piaci kapitalizációjának alakulását mutatja be 2014-től 2024-ig.
+            </p>
+        </div>
+        <div id="plotly-chart"></div> <!-- This is where the Plotly chart will be rendered -->
+    </section>
+
+    <section>
+        <div class="chart-description">
+            <h2>Section 2: A kriptovaluták piaci kapitalizációja százalékosan</h2>
+            <p>
+                A lenti ábra a kriptovaluták piaci kapitalizációjának alakulását mutatja be százalékosan 2014-től 2024-ig.
+            </p>
+        </div>
+        <div id="plotly-chart-2"></div> <!-- This is where the second Plotly chart will be rendered -->
+    </section>
+    <section>
+        <div class="chart-description">
+            <h2>Section 3: Fear & Greed index </h2>
+            <p>
+                A lenti ábra a Fear & Greed (félelem és kapzsiság) index időbeli alakulását mutatja 2023 júliusa és 2024 júliusa között. Az index százalékos formában jelenik meg, ahol a magasabb értékek a piaci optimizmust és kapzsiságot, míg az alacsonyabb értékek a félelmet jelzik.
+            </p>
+        </div>
+        <div id="plotly-chart-3"></div> <!-- This is where the third Plotly chart will be rendered -->
+    </section>
+    <section>
+        <div class="chart-description">
+            <h2>Section 4: ETH-USD Chart</h2>
+            <p>
+                A lenti ábra az Ethereum (ETH) záróárfolyamának alakulását mutatja be az amerikai dollárhoz (USD) viszonyítva 2017-től 2024-ig.
+            </p>
+        </div>
+        <div id="plotly-chart-4"></div> <!-- This is where the fourth Plotly chart will be rendered -->
+    </section>
+    <section>
+        <div class="chart-description">
+            <h2>Section 5: SOL-USD Chart</h2>
+            <p>
+                A lenti ábra a Solana (Sol) záróárfolyamának alakulását mutatja be az amerikai dollárhoz (USD) viszonyítva 2020-tól 2024-ig.
+            </p>
+        </div>
+        <div id="plotly-chart-5"></div> <!-- This is where the fifth Plotly chart will be rendered -->
+    </section>
+    <section>
+        <div class="chart-description">
+            <h2>Section 6: Compare Chains: Ethereum vs Solana TVL</h2>
+            <p>
+                A lenti ábra az Ethereum és a Solana teljes értékzárát (TVL) hasonlítja össze. A TVL (Total Value Locked) a decentralizált pénzügyi (DeFi) protokollokba zárt összes eszköz értékét jelenti.
+            </p>
+        </div>
+        <div id="plotly-chart-6"></div> <!-- This is where the sixth Plotly chart will be rendered -->
+    </section>
+    <section>
+        <div class="chart-description">
+            <h2>Section 7: Compare Chains: Ethereum vs Solana Fees</h2>
+            <p>
+                A lenti ábra az Ethereum és a Solana blokkláncok teljes tranzakciós díjait hasonlítja össze. Az ábra azt mutatja, hogy az Ethereum tranzakciós díjai jelentősen magasabbak, különösen a csúcsidőszakokban, míg a Solana díjai alacsonyabbak.
+            </p>
+        </div>
+        <div id="plotly-chart-7"></div> <!-- This is where the seventh Plotly chart will be rendered -->
+    </section>
+
+
+    <script>
+        var figure_1_spec = "marketcap_chart.json"; // Path to the first JSON file
+        var figure_2_spec = "bitdom.json"; // Path to the second JSON file
+        var figure_3_spec = "fg.json"; // Path to the third JSON file
+        var figure_4_spec = "ETH_USD.json"; // Path to the fourth JSON file
+        var figure_5_spec = "SOL_USD.json"; // Path to the fifth JSON file
+        var figure_6_spec = "compare_chains_eth_sol.json"; // Path to the sixth JSON file
+        var figure_7_spec = "compare_chains_eth_sol_fees.json"; // Path to the seventh JSON file
+        // Fetch the first JSON file and render the Plotly chart
+        fetch(figure_1_spec)
+            .then(response => response.json())
+            .then(data => {
+                var plotlyData = JSON.parse(data);
+                Plotly.newPlot('plotly-chart', plotlyData.data, plotlyData.layout);
+            });
+
+        // Fetch the second JSON file and render the Plotly chart
+        fetch(figure_2_spec)
+            .then(response => response.json())
+            .then(data => {
+                var plotlyData = JSON.parse(data);
+                Plotly.newPlot('plotly-chart-2', plotlyData.data, plotlyData.layout);
+            });
+
+        // Fetch the third JSON file and render the Plotly chart
+        fetch(figure_3_spec)
+            .then(response => response.json())
+            .then(data => {
+                var plotlyData = JSON.parse(data);
+                Plotly.newPlot('plotly-chart-3', plotlyData.data, plotlyData.layout);
+            });
+
+        // Fetch the fourth JSON file and render the Plotly chart
+        fetch(figure_4_spec)
+            .then(response => response.json())
+            .then(data => {
+                var plotlyData = JSON.parse(data);
+                Plotly.newPlot('plotly-chart-4', plotlyData.data, plotlyData.layout);
+            });
+
+        // Fetch the fifth JSON file and render the Plotly chart
+        fetch(figure_5_spec)
+            .then(response => response.json())
+            .then(data => {
+                var plotlyData = JSON.parse(data);
+                Plotly.newPlot('plotly-chart-5', plotlyData.data, plotlyData.layout);
+            });
+            // Fetch the sixth JSON file and render the Plotly chart
+        fetch(figure_6_spec)
+            .then(response => response.json())
+            .then(data => {
+                Plotly.newPlot('plotly-chart-6', data.data, data.layout);
+            });
+            // Fetch the seventh JSON file and render the Plotly chart
+        fetch(figure_7_spec)
+            .then(response => response.json())
+            .then(data => {
+                Plotly.newPlot('plotly-chart-7', data.data, data.layout);
+            });
+    </script>
+    
+
+</body>
+    
+</html>
+
